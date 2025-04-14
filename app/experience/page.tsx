@@ -17,7 +17,8 @@ interface Experience {
 
 export default function Page() {
     const [isLoaded, setIsLoaded] = useState(false);
-    
+    console.log(isLoaded)
+
     // Set isLoaded to true after component mounts to trigger animations
     useEffect(() => {
         setIsLoaded(true);

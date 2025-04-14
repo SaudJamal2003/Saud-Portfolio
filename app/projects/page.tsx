@@ -17,7 +17,8 @@ interface Project {
 
 export default function Projects() {
   const [isLoaded, setIsLoaded] = useState(false);
-  
+  console.log(isLoaded)
+
   // Set isLoaded to true after component mounts to trigger animations
   useEffect(() => {
     setIsLoaded(true);

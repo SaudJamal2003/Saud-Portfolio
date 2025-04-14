@@ -8,7 +8,7 @@ interface ContactSectionProps {
   phone?: string;
 }
 
-const ContactSection: FC<ContactSectionProps> = ({
+const Page: FC<ContactSectionProps> = ({
   email = 'jsaud7308@gmail.com',
   phone = '+923352495576'
 }) => {
@@ -80,4 +80,4 @@ const ContactSection: FC<ContactSectionProps> = ({
   );
 };
 
-export default ContactSection;
+export default Page;
