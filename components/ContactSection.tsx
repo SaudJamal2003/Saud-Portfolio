@@ -10,7 +10,7 @@ interface ContactSectionProps {
 
 const Page: FC<ContactSectionProps> = ({
   email = 'jsaud7308@gmail.com',
-  phone = '+923352495576'
+  phone = '+923330206826'
 }) => {
   const [activeItem, setActiveItem] = useState<string | null>(null);
 
