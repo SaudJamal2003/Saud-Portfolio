@@ -48,7 +48,7 @@ export default function Page() {
           grades: "A+ Grade - 94%",
           description:
             "Completed pre-engineering with distinction in Mathematics, Physics, and Computer Science, securing 94% — the highest in my college, effectively topping the institution. Ranked among the top 10 students in Karachi, and was honored with a scholarship offer from CA authorities in recognition of academic excellence.",
-          logo: "/assets/education/nationalCollege.jpg"
+          logo: "/assets/education/nationalcollege.jpg"
         },
         {
           id: 3,
