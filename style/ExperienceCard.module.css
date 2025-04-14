@@ -1,0 +1,145 @@
+/* styles/ExperienceCard.module.css */
+.card {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+  
+  .cardHeader {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem;
+    position: relative;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  
+  .logoContainer {
+    min-width: 50px;
+    margin-right: 1rem;
+  }
+  
+  .logo {
+    border-radius: 8px;
+    object-fit: contain;
+  }
+  
+  .companyInfo {
+    flex: 1;
+  }
+  
+  .company {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 0.25rem 0;
+  }
+  
+  .position {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .metaInfo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  .location, .duration {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .expandButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+  }
+  
+  .expandButton:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .expandIcon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .expandIcon.expanded {
+    transform: rotate(45deg);
+  }
+  
+  .cardContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  
+  .cardContent.expanded {
+    max-height: 1000px;
+    padding: 1.25rem;
+  }
+  
+  .descriptionList {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+  }
+  
+  .descriptionItem {
+    color: #4b5563;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+  
+  .descriptionItem:last-child {
+    margin-bottom: 0;
+  }
+  
+  @media (max-width: 640px) {
+    .cardHeader {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .logoContainer {
+      margin-bottom: 1rem;
+      margin-right: 0;
+    }
+    
+    .expandButton {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    
+    .metaInfo {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }

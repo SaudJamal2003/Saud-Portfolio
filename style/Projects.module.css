@@ -1,0 +1,383 @@
+/* styles/Projects.module.css */
+@font-face {
+    font-family: 'Outfit';
+    src: url('/fonts/Outfit.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  .container {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f9fafb;
+    overflow-x: hidden; /* Prevent horizontal scrolling during animations */
+  }
+  
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Outfit;
+  }
+  
+  /* Page title animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .projectsTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0; /* Start with opacity 0 */
+  }
+  
+  .projectsTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 120px;
+    height: 4px;
+    background-color: #4a90e2;
+    transform: translateX(-50%) scaleX(0); /* Start with zero width */
+    transition: transform 0.8s ease;
+    animation: expandWidth 1s ease 0.3s forwards; /* Delay the animation slightly */
+  }
+  
+  @keyframes expandWidth {
+    from {
+      transform: translateX(-50%) scaleX(0);
+    }
+    to {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+  
+  .projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px;
+    width: 100%;
+  }
+  
+  .projectCard {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    min-height: 250px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    transform-origin: center;
+    will-change: transform, box-shadow;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  /* Stagger the animations for each project card */
+  .projectCard:nth-child(1) {
+    animation-delay: 0.3s;
+  }
+  
+  .projectCard:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  
+  .projectCard:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+  
+  .projectCard:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+  
+  .projectCard:nth-child(5) {
+    animation-delay: 0.7s;
+  }
+  
+  .projectCard:nth-child(6) {
+    animation-delay: 0.8s;
+  }
+  
+  /* Animation on hover/focus */
+  .projectCard:hover, 
+  .projectCard:focus-within {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Add a subtle colored border on hover/focus */
+  .projectCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #4a90e2, #6366f1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  
+  .projectCard:hover::before,
+  .projectCard:focus-within::before {
+    transform: scaleX(1);
+  }
+  
+  /* Add a subtle shine effect */
+  .projectCard::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: all 0.75s ease;
+    opacity: 0;
+  }
+  
+  .projectCard:hover::after,
+  .projectCard:focus-within::after {
+    left: 150%;
+    opacity: 0.6;
+  }
+  
+  .cardContent {
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .logoAndTitle {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  
+  .logoContainer {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .projectCard:hover .logoContainer,
+  .projectCard:focus-within .logoContainer {
+    transform: scale(1.1);
+  }
+  
+  .logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+  }
+  
+  .projectCard:hover .logo,
+  .projectCard:focus-within .logo {
+    filter: brightness(1.1);
+  }
+  
+  .projectTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+    padding-right: 24px;
+    position: relative;
+    transition: color 0.3s ease;
+    line-height: 1.4;
+  }
+  
+  .projectCard:hover .projectTitle,
+  .projectCard:focus-within .projectTitle {
+    color: #4a90e2;
+  }
+  
+  .externalLink {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #6b7280;
+    transition: color 0.3s ease;
+  }
+  
+  .externalLink:hover,
+  .externalLink:focus {
+    color: #4a90e2;
+  }
+  
+  .externalLinkIcon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .metaInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  
+  .metaInfo::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #e5e7eb;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    transition: background-color 0.4s ease;
+  }
+  
+  .projectCard:hover .metaInfo::after,
+  .projectCard:focus-within .metaInfo::after {
+    background-color: #d1d5db;
+  }
+  
+  .projectType, .projectDate {
+    display: flex;
+    align-items: center;
+    color: #6b7280;
+    font-size: 0.875rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .projectCard:hover .projectType,
+  .projectCard:hover .projectDate,
+  .projectCard:focus-within .projectType,
+  .projectCard:focus-within .projectDate {
+    transform: translateX(5px);
+  }
+  
+  .icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    color: #9ca3af;
+    transition: color 0.3s ease;
+  }
+  
+  .projectCard:hover .icon,
+  .projectCard:focus-within .icon {
+    color: #4a90e2;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4b5563;
+    margin-top: 16px;
+    margin-bottom: auto;
+    transition: color 0.3s ease;
+  }
+  
+  .projectCard:hover .description,
+  .projectCard:focus-within .description {
+    color: #1f2937;
+  }
+  
+  .technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  
+  .techIcon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+  }
+  
+  .projectCard:hover .techIcon,
+  .projectCard:focus-within .techIcon {
+    background-color: #e5e7eb;
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+  
+  /* Add option to disable animations for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .projectsTitle,
+    .projectsTitle::after,
+    .projectCard {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .projectsTitle {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .projectsGrid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .projectsTitle {
+      font-size: 2rem;
+    }
+    
+    .projectsGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .cardContent {
+      padding: 20px;
+    }
+    
+    .logoContainer {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .projectTitle {
+      font-size: 1.1rem;
+    }
+  }

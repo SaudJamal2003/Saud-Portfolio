@@ -1,0 +1,405 @@
+/* styles/Resume.module.css */
+@font-face {
+    font-family: 'Outfit';
+    src: url('/fonts/Outfit.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+  
+.container {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f9fafb;
+    overflow-x: hidden; /* Prevent horizontal scrolling during animations */
+}
+  
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Outfit;
+}
+
+/* Page title animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.resumeTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0; /* Start with opacity 0 */
+}
+  
+.resumeTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 120px;
+    height: 4px;
+    background-color: #10b981; /* Green accent color for Resume page */
+    transform: translateX(-50%) scaleX(0); /* Start with zero width */
+    transition: transform 0.8s ease;
+    animation: expandWidth 1s ease 0.3s forwards; /* Delay the animation slightly */
+}
+
+@keyframes expandWidth {
+    from {
+        transform: translateX(-50%) scaleX(0);
+    }
+    to {
+        transform: translateX(-50%) scaleX(1);
+    }
+}
+
+.resumeActions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease 0.4s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.downloadButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+}
+
+.downloadButton:hover, 
+.downloadButton:focus {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3);
+}
+
+.downloadButtonSmall {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+.downloadButtonSmall:hover, 
+.downloadButtonSmall:focus {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+.buttonIcon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+}
+
+.resumePreviewContainer {
+    width: 100%;
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+}
+
+.previewCard {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    transition: all 0.4s ease;
+}
+
+.previewCard:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.resumeSection {
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.resumeSection::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #e5e7eb;
+    margin-top: 32px;
+}
+
+.resumeSection:last-child::after {
+    display: none;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+}
+
+.sectionTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #10b981;
+    transition: width 0.3s ease;
+}
+
+.resumeSection:hover .sectionTitle::after {
+    width: 100%;
+}
+
+.sectionContent {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.skillsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skillCategory h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 10px;
+}
+
+.skillBadges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skillBadge {
+    padding: 6px 12px;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.skillBadge:hover {
+    background-color: rgba(16, 185, 129, 0.2);
+    transform: translateY(-2px);
+}
+
+.experienceList, .educationList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.experienceItem, .educationItem {
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 3px solid #10b981;
+    background-color: #f8fdfb;
+    transition: all 0.3s ease;
+}
+
+.experienceItem:hover, .educationItem:hover {
+    background-color: #f0fdf9;
+    transform: translateX(5px);
+}
+
+.expHeader, .eduHeader {
+    display: flex;
+    gap: 16px;
+}
+
+.companyLogo, .institutionLogo {
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+.companyName, .institutionName {
+    color: #4b5563;
+    font-weight: 500;
+    margin: 4px 0;
+}
+
+.duration {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.grades {
+    color: #059669;
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-top: 4px;
+}
+
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.projectCard {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8fdfb;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.projectCard:hover {
+    border-color: #10b981;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+.projectHeader {
+    margin-bottom: 12px;
+}
+
+.projectHeader h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.projectTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.projectTag {
+    padding: 3px 8px;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.resumeFooter {
+    margin-top: 32px;
+    text-align: center;
+    color: #6b7280;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+@media (max-width: 768px) {
+    .resumeTitle {
+        font-size: 2.5rem;
+    }
+    
+    .previewCard {
+        padding: 24px;
+    }
+    
+    .projectsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .resumeTitle {
+        font-size: 2rem;
+    }
+    
+    .downloadButton {
+        width: 100%;
+    }
+    
+    .resumePreviewContainer {
+        width: 100%;
+    }
+    
+    .previewCard {
+        padding: 20px;
+        border-radius: 8px;
+    }
+    
+    .expHeader, .eduHeader {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .companyLogo, .institutionLogo {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* Add option to disable animations for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .resumeTitle,
+    .resumeTitle::after,
+    .resumeActions,
+    .resumePreviewContainer,
+    .downloadButton:hover,
+    .downloadButtonSmall:hover,
+    .experienceItem:hover,
+    .educationItem:hover,
+    .projectCard:hover {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

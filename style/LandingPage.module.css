@@ -1,0 +1,249 @@
+/* components/LandingPage.module.css */
+@font-face {
+    font-family: 'Outfit';
+    src: url('/fonts/Outfit.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Outfit';
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .contentSection {
+    flex: 1;
+    padding-right: 2rem;
+  }
+  
+  .title {
+    font-size: 3.6rem;
+    font-weight: 600;
+    color: #272b48;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+    font-family: Outfit;
+  }
+  
+  .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: #4a90e2;
+    animation: expandLine 1.5s ease-in-out forwards;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes expandLine {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 0.8s ease-in-out forwards;
+    animation-delay: 0.3s;
+  }
+  
+  .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 2rem;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 0.8s ease-in-out forwards;
+    animation-delay: 0.6s;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .countersContainer {
+    display: flex;
+    justify-content: flex-start;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 0.8s ease-in-out forwards;
+    animation-delay: 0.9s;
+  }
+  
+  .counterItem {
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .counterItem:hover {
+    transform: translateY(-5px);
+  }
+  
+  .counterNumber {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #000;
+  }
+  
+  .counterLabel {
+    font-size: 1rem;
+    color: #666;
+    max-width: 150px;
+  }
+  
+  .socialLinks {
+    margin-top: -2%;
+    display: flex;
+    gap: 1.5rem;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 0.8s ease-in-out forwards;
+    animation-delay: 1.2s;
+  }
+  
+  .socialLink {
+    font-size: 1.5rem;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .socialLink:hover {
+    color: #4a90e2;
+    transform: translateY(-3px);
+  }
+  
+  .socialLink:focus {
+    outline: 2px solid #4a90e2;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+  
+  .imageContainer {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeInRight 1s ease-in-out forwards;
+    animation-delay: 0.8s;
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .imageWrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .imageWrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .profileImage {
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  /* Focus animations for all interactive elements */
+  *:focus {
+    outline: 2px solid #4a90e2;
+    outline-offset: 4px;
+    transition: outline-offset 0.2s ease;
+  }
+  
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column-reverse;
+      padding: 1.5rem;
+      text-align: center;
+    }
+  
+    .contentSection {
+      padding-right: 0;
+      margin-top: 2rem;
+    }
+  
+    .countersContainer {
+      justify-content: center;
+    }
+  
+    .socialLinks {
+      justify-content: center;
+    }
+    
+    .title {
+      font-size: 3rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .countersContainer {
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    
+    .title {
+      font-size: 2.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+    }
+    
+    .imageWrapper {
+      width: 250px;
+      height: 250px;
+    }
+  }

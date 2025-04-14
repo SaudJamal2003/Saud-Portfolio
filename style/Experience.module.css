@@ -1,0 +1,531 @@
+/* styles/Experience.module.css */
+@font-face {
+    font-family: 'Outfit';
+    src: url('/fonts/Outfit.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+  
+.container {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f9fafb;
+    overflow-x: hidden; /* Prevent horizontal scrolling during animations */
+}
+  
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Outfit;
+}
+
+/* Page title animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.experienceTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0; /* Start with opacity 0 */
+}
+  
+.experienceTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 120px;
+    height: 4px;
+    background-color: #4a90e2;
+    transform: translateX(-50%) scaleX(0); /* Start with zero width */
+    transition: transform 0.8s ease;
+    animation: expandWidth 1s ease 0.3s forwards; /* Delay the animation slightly */
+}
+
+@keyframes expandWidth {
+    from {
+        transform: translateX(-50%) scaleX(0);
+    }
+    to {
+        transform: translateX(-50%) scaleX(1);
+    }
+}
+
+.timelineContainer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+  
+.timelineCenterLine {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: #e5e7eb;
+    transform: translateX(-50%);
+    transform-origin: top;
+    animation: growDown 1.2s ease forwards;
+    height: 0; /* Start with zero height */
+}
+
+@keyframes growDown {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100%;
+    }
+}
+  
+.experienceItem {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Stagger the animations for each experience item */
+.experienceItem:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.experienceItem:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.experienceItem:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.experienceItem:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.experienceItem:nth-child(5) {
+    animation-delay: 1.1s;
+}
+  
+.leftSide {
+    justify-content: flex-start;
+}
+  
+.rightSide {
+    justify-content: flex-end;
+}
+  
+.card {
+    width: calc(50% - 30px);
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    min-height: 280px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    transform-origin: center;
+    will-change: transform, box-shadow;
+}
+
+/* Animation on hover/focus */
+.card:hover, 
+.card:focus-within {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Add a subtle colored border on hover/focus */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #4a90e2, #6366f1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.card:hover::before,
+.card:focus-within::before {
+    transform: scaleX(1);
+}
+
+/* Add a subtle shine effect */
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: all 0.75s ease;
+    opacity: 0;
+}
+
+.card:hover::after,
+.card:focus-within::after {
+    left: 150%;
+    opacity: 0.6;
+}
+
+.leftSide .card {
+    margin-right: 30px;
+}
+  
+.rightSide .card {
+    margin-left: 30px;
+}
+  
+.cardContent {
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+  
+.logoAndTitle {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .logoAndTitle,
+.card:focus-within .logoAndTitle {
+    transform: translateY(-3px);
+}
+  
+.logoContainer {
+    width: 60px;
+    height: 60px;
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .logoContainer,
+.card:focus-within .logoContainer {
+    transform: scale(1.1);
+}
+  
+.logo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: filter 0.3s ease;
+}
+
+.card:hover .logo,
+.card:focus-within .logo {
+    filter: brightness(1.1);
+}
+  
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+}
+  
+.company {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+    margin-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.card:hover .company,
+.card:focus-within .company {
+    color: #4a90e2;
+}
+  
+.position {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin: 0;
+}
+  
+.metaInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+  
+.metaInfo::after {
+    content: "";
+    display: block;
+    width: calc(100% - 40px);
+    height: 1px;
+    background-color: #e5e7eb;
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+.card:hover .metaInfo::after,
+.card:focus-within .metaInfo::after {
+    width: 100%;
+    left: 0;
+    background-color: #d1d5db;
+}
+  
+.location, .date {
+    display: flex;
+    align-items: center;
+    color: #6b7280;
+    font-size: 0.875rem;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .location,
+.card:hover .date,
+.card:focus-within .location,
+.card:focus-within .date {
+    transform: translateX(5px);
+}
+  
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    color: #9ca3af;
+    transition: color 0.3s ease;
+}
+
+.card:hover .icon,
+.card:focus-within .icon {
+    color: #4a90e2;
+}
+  
+.description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4b5563;
+    margin-top: 20px;
+    transition: color 0.3s ease;
+}
+
+.card:hover .description,
+.card:focus-within .description {
+    color: #1f2937;
+}
+  
+.timelineNode {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    transition: transform 0.4s ease, background-color 0.4s ease;
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Stagger the animations for each timeline node */
+.experienceItem:nth-child(1) .timelineNode {
+    animation-delay: 0.8s;
+}
+
+.experienceItem:nth-child(2) .timelineNode {
+    animation-delay: 1.0s;
+}
+
+.experienceItem:nth-child(3) .timelineNode {
+    animation-delay: 1.2s;
+}
+
+.experienceItem:nth-child(4) .timelineNode {
+    animation-delay: 1.4s;
+}
+
+.experienceItem:nth-child(5) .timelineNode {
+    animation-delay: 1.6s;
+}
+
+.experienceItem:hover .timelineNode,
+.experienceItem:focus-within .timelineNode {
+    transform: translateX(-50%) scale(1.2);
+    background-color: #f0f9ff;
+}
+  
+.expandButton {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.expandButton:hover,
+.expandButton:focus {
+    transform: rotate(45deg);
+}
+  
+.expandButton svg {
+    width: 20px;
+    height: 20px;
+    color: #6b7280;
+    transition: color 0.3s ease;
+}
+
+.expandButton:hover svg,
+.expandButton:focus svg {
+    color: #4a90e2;
+}
+
+/* Add option to disable animations for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .experienceTitle,
+    .experienceTitle::after,
+    .timelineCenterLine,
+    .experienceItem,
+    .timelineNode {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        height: auto !important;
+    }
+}
+  
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+        margin-bottom: 40px;
+    }
+    
+    .timelineContainer {
+        gap: 40px;
+    }
+    
+    .card {
+        width: calc(50% - 20px);
+    }
+    
+    .leftSide .card {
+        margin-right: 20px;
+    }
+    
+    .rightSide .card {
+        margin-left: 20px;
+    }
+    
+    .timelineNode {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .expandButton svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .description {
+        font-size: 0.875rem;
+    }
+}
+  
+@media (max-width: 640px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .timelineCenterLine {
+        left: 20px;
+        transform: none;
+    }
+    
+    .experienceItem {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 20px;
+    }
+    
+    .leftSide, .rightSide {
+        justify-content: flex-start;
+    }
+    
+    .card {
+        width: calc(100% - 40px);
+        margin-left: 40px !important;
+        margin-right: 0 !important;
+    }
+    
+    .timelineNode {
+        left: 20px;
+        top: 30px;
+        transform: none;
+    }
+
+    .experienceItem:hover .timelineNode,
+    .experienceItem:focus-within .timelineNode {
+        transform: scale(1.2);
+    }
+
+    /* Adjust the animation timing for mobile layout */
+    .timelineCenterLine {
+        animation: growDown 1.2s ease forwards;
+        height: 0;
+        left: 20px;
+    }
+}
