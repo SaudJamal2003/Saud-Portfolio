@@ -196,11 +196,11 @@
   }
   
   /* Focus animations for all interactive elements */
-  :global(*:focus) {
+  /* :global(*:focus) {
     outline: 2px solid #4a90e2;
     outline-offset: 4px;
     transition: outline-offset 0.2s ease;
-  }
+  } */
   
   @media (max-width: 1024px) {
     .container {

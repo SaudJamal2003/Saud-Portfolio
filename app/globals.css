@@ -1,6 +1,11 @@
 :root {
   --background: #ffffff;
 }
+*:focus {
+  outline: 2px solid #4a90e2;
+  outline-offset: 4px;
+  transition: outline-offset 0.2s ease;
+}
 
 html,
 body {
