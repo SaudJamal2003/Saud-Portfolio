@@ -32,59 +32,90 @@ export default function Projects() {
       timeframe: "August - Present, 2024-2025",
       description: "Developed an AI-based platform that generates Cambridge-style exams, simulates timed tests, auto-assesses results, and provides performance analytics along with parental tracking.",
       logo: "/assets/projects/predicted.png",
-    //   link: "https://predicted.example.com",
+      link: "",
       technologies: ["react", "nodejs", "express", "mysql", "figma", "openai"]
     },
     {
       id: 2,
+      title: "Cafe Street",
+      type: "Static Frontend Website",
+      timeframe: "August 2024",
+      description: "Developed a visually appealing static portfolio website demonstrating responsive design, modern layouts, and interactive UI components to highlight web development capabilities.",
+      logo: "/assets/projects/cafe.png",
+      link: "https://cafe-street-murex.vercel.app/",
+      technologies: ["react","javascript", "css"]
+    },
+    {
+      id: 3,
+      title: "Go-To-Store",
+      type: "Fullstack E-commerce Website",
+      timeframe: "August 2024",
+      description: "Built a fullstack e-commerce platform with Sanity CMS as backend, featuring product management, shopping cart functionality, user authentication, and responsive design for a smooth shopping experience.",
+      logo: "/assets/projects/gotoStore.ico",
+      link: "https://your-goto-store.vercel.app/",
+      technologies: ["nextjs","css", "sanity", "nodejs"]
+    },
+    {
+      id: 4,
+      title: "Panaverse DAO Mock",
+      type: "Static Frontend Website",
+      timeframe: "August 2024",
+      description: "Created a static landing page replicating the Panaverse DAO website layout, focusing on clean UI design, responsive structure, and smooth navigation to showcase frontend development skills.",
+      logo: "/assets/projects/panaverse.ico",
+      link: "https://panaverse-dao-pq7g.vercel.app/",
+      technologies: ["nextjs", "css"]
+    },
+    {
+      id: 5,
+      title: "Simax Landing Page",
+      type: "Static Frontend Website",
+      timeframe: "August 2024",
+      description: "Designed and developed a modern static landing page for Simax, incorporating smooth scroll effects, engaging sections, and a professional layout to present key business information attractively.",
+      logo: "/assets/projects/simax.ico",
+      link: "https://simax-landing-page-8h6s.vercel.app/",
+      technologies: ["react","javascript", "css", "bootstrap"]
+    },
+    {
+      id: 6,
       title: "Helping Hands",
       type: "Full Stack Web Application",
       timeframe: "January - April, 2024",
       description: "Built a donation and volunteer management platform for charity foundations with user dashboards, donation tracking, and an AI chatbot to guide users through features and services.",
       logo: "/assets/projects/helpinghands.svg",
-    //   link: "https://helpinghands.example.com",
+      link: "",
       technologies: ["react", "nodejs", "express", "mysql", "figma", "gemini"]
-    },
+    },  
     {
-      id: 3,
+      id: 7,
       title: "EquaSolve",
       type: "AI-Powered Math Tool",
       timeframe: "August - September, 2024",
       description: "Created an AI-driven math tool that solves complex algebraic, trigonometric, and graphical problems in real-time, featuring visual representations and intuitive equation inputs.",
       logo: "/assets/projects/equasolve.svg",
-    //   link: "https://equasolve.example.com",
+      link: "",
       technologies: ["react", "nodejs", "python", "gemini", "pinecone"]
     },
     {
-        id: 4,
-        title: "Vector Space Model",
-        type: "Information Retrieval System",
-        timeframe: "March 2024",
-        description: "Implemented a text-based information retrieval system using TF-IDF weighting and cosine similarity to compute document relevance.",
-        logo: "/assets/projects/vsm.svg",
-        // link: "https://github.com/SaudJamal2003/Vector-Space-Model",
-        technologies: ["python"]
-      },
-      {
-        id: 5,
-        title: "Sentiment Analyzer",
-        type: "NLP Application",
-        timeframe: "February 2024",
-        description: "Developed and compared three different models for sentiment analysis, evaluating their performance on various datasets.",
-        logo: "/assets/projects/sentiment.svg",
-        // link: "https://github.com/SaudJamal2003/Sentiment-Analyzer",
-        technologies: ["python"]
-      },
-      {
-        id: 6,
-        title: "Cafe Street",
-        type: "Static Frontend Website",
-        timeframe: "August 2024",
-        description: "Designed and developed a personal portfolio website to showcase projects, skills, and experiences in web development.",
-        logo: "/assets/projects/cafe.png",
-        // link: "https://github.com/SaudJamal2003/Devski.io",
-        technologies: ["javascript", "html", "css", "bootstrap"]
-      }
+      id: 8,
+      title: "Vector Space Model",
+      type: "Information Retrieval System",
+      timeframe: "March 2024",
+      description: "Implemented a text-based information retrieval system using TF-IDF weighting and cosine similarity to compute document relevance.",
+      logo: "/assets/projects/vsm.svg",
+      link: "",
+      technologies: ["python"]
+    },
+    {
+      id: 9,
+      title: "Sentiment Analyzer",
+      type: "NLP Application",
+      timeframe: "February 2024",
+      description: "Developed and compared three different models for sentiment analysis, evaluating their performance on various datasets.",
+      logo: "/assets/projects/sentiment.svg",
+      link: "",
+      technologies: ["python"]
+    },
+      
   ];
   
   // Technology icon mapping
@@ -103,7 +134,8 @@ export default function Projects() {
     css: "/assets/skills/css-3-svgrepo-com.svg",
     bootstrap: "/assets/skills/bootstarp.png",
     figma: "/assets/skills/figma.svg",
-    pinecone: "/assets/skills/pinecone.png"
+    pinecone: "/assets/skills/pinecone.png",
+    sanity: "/assets/skills/sanity.svg"
   };
   
 
